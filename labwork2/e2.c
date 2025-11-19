@@ -13,3 +13,14 @@ they should be removed from the train.
 train.
 Implement a program in C/C++ using Linked List to manage the train and test all
 functions.*/
+
+#include<stdio.h>
+#define
+
+struct Car{
+    int pas;
+    int 
+}
+int main(){
+    return 0;
+}
