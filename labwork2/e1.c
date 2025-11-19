@@ -13,7 +13,6 @@ Dynamic) to manage this unbounded integers:
 
 #include <stdio.h>
 #define MAX 1000
- 
 typedef struct {
     int size;
     int element[MAX];
@@ -30,9 +29,13 @@ int length(List *l,int n){
     int k=1;
     if(n==0){
         digit[k++]=0;
-    }else{while (n>0){
-          digit[k++]=n%10;
-          n=n/10;
+    }else{
+        while (n!=0){
+            if(n<0){
+                n=-n;
+            }
+            digit[k++]=n%10;
+            n=n/10;
         }
     }
     for(int i=k;i>0;i--){
@@ -49,32 +52,28 @@ int insert(List *l,int pos,int val){
         printf("Invalid position\n");
        
     }
-    for(int i=l->size;i>pos;i--){
+    for(int i=l->size;i>pos+1;i--){
         l->element[i]=l->element[i-1];
     }
-    l->element[pos]=val;
+    l->element[pos+1]=val;
     l->size++;
 }
-
-
 int delete(List *l,int pos){
-    if(pos<1||pos >=l->size){
+    if(pos<2||pos >=(l->size-1)){
         printf("Invalid position\n");
     }
-    for(int i=pos;i<l->size-1;i++){
+    for(int i=pos+1;i<l->size-1;i++){
         l->element[i]=l->element[i+1];
     }
     l->size--;
 }
-
 int Sum(List *l){
     int sum=0;
-    for(int i=0;i<l->size;i++){
+    for(int i=1;i<l->size;i++){
         sum += l->element[i];
     }
     return sum;
 }
-
 void display(List *l){
     if(l->element[0]==-1){
         printf("-");
@@ -85,12 +84,7 @@ void display(List *l){
         printf("%d",l->element[i]);
     }
     printf("\n");
-    
 }
-
-
-
-
 int main(){
     int n,choice,pos,val;
     List l;
@@ -98,14 +92,13 @@ int main(){
     scanf("%d",&n);
     init(&l,n);
     length(&l,n);
-    
     while(1){
         printf("\n\n----MANAGING LARGE INTEGER NUMBERS----\n");
         printf("1.Display number\n");
         printf("2.Add digit into 1 position\n");
         printf("3.Delete digit\n");
         printf("4.Sum digit\n");
-        printf("0.Exit\n");
+        printf("0.Exit\n\n");
         printf("Your choice( Enter 0 to 4, please):");
         scanf("%d",&choice);        if(choice==1){
             printf("Your number is: ");
@@ -122,19 +115,11 @@ int main(){
             delete(&l,pos);
         }else if(choice==4){
             printf("Sum of your number is:%d ",Sum(&l));
-
         }else if(choice==0){
             break;
         }else{
             printf("Please, choice from 0 to 4.");
         }  
     }
-  
-   
-    
-    
-    
-
-    
     return 0;
 }
