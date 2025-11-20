@@ -12,7 +12,7 @@ Dynamic) to manage this unbounded integers:
 }*/
 
 #include <stdio.h>
-#define MAX 1000
+#define MAX[1000]
 typedef struct {
     int size;
     int element[MAX];
@@ -58,7 +58,8 @@ int insert(List *l,int pos,int val){
     l->element[pos+1]=val;
     l->size++;
 }
-int delete(List *l,int pos){
+// remove 1 digits at any place in an integer
+int remove(List *l,int pos){
     if(pos<2||pos >=(l->size-1)){
         printf("Invalid position\n");
     }
@@ -67,6 +68,8 @@ int delete(List *l,int pos){
     }
     l->size--;
 }
+
+// sum of digits in an integer expect sign
 int Sum(List *l){
     int sum=0;
     for(int i=1;i<l->size;i++){
@@ -74,6 +77,7 @@ int Sum(List *l){
     }
     return sum;
 }
+// display integer 
 void display(List *l){
     if(l->element[0]==-1){
         printf("-");
