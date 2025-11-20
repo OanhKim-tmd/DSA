@@ -50,15 +50,17 @@ void addCar(Car **head,int capacity,int passenger, char* id){
     }
     temp->next =newCar;
 }
-// void resever(Car *head,char *id, int num){
-//     Car *temp =head;
-//     while (temp !=NULL){
-//         if(strcmp(temp->id)==0){
+void resever(Car *head,char *id, int num){
+    Car *temp =head;
+    while (temp !=NULL){
+        if(strcmp(temp->id,id)==0){
+            if(temp->passenger +num >temp->capacity){
+                
+            }
+        }
 
-//         }
-
-//     }
-// }
+    }
+}
 
 
 void displayCar(int car){
