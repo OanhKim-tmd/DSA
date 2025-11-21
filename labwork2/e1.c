@@ -12,7 +12,7 @@ Dynamic) to manage this unbounded integers:
 }*/
 
 #include <stdio.h>
-#define MAX[1000]
+#define MAX 100
 typedef struct {
     int size;
     int element[MAX];
@@ -50,17 +50,16 @@ int insert(List *l,int pos,int val){
     }
     if(pos<0||pos>l->size){
         printf("Invalid position\n");
-       
     }
-    for(int i=l->size;i>pos+1;i--){
+    for(int i = l->size;i>pos+1;i--){
         l->element[i]=l->element[i-1];
     }
     l->element[pos+1]=val;
     l->size++;
 }
 // remove 1 digits at any place in an integer
-int remove(List *l,int pos){
-    if(pos<2||pos >=(l->size-1)){
+int delete(List *l,int pos){
+    if(pos<1||pos >=(l->size-1)){
         printf("Invalid position\n");
     }
     for(int i=pos+1;i<l->size-1;i++){
@@ -104,7 +103,8 @@ int main(){
         printf("4.Sum digit\n");
         printf("0.Exit\n\n");
         printf("Your choice( Enter 0 to 4, please):");
-        scanf("%d",&choice);        if(choice==1){
+        scanf("%d",&choice);        
+        if(choice==1){
             printf("Your number is: ");
             display(&l);
         }else if(choice==2){
