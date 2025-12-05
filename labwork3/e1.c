@@ -56,11 +56,11 @@ int findItemIndexByName(Item items[], int k, char* name){
     }
     return -1;
 }
-void displayItems(Item items[], int n){
+void displayItems(Item items[], int k){
     printf("\n=== LIST OF ITEMS ===\n");
     printf("%-10s | %-11s | %-10s\n", "Name", "Price", "Quantity");
     printf("-----------------------------------\n");
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < k; i++){
         printf("%-10s | $%-10.0f | %-10d\n", items[i].name, items[i].price, items[i].quantity);
     }
     printf("\n");
@@ -129,5 +129,6 @@ int main() {
     }
     printf("=== ALL CUSTOMERS HAVE BEEN PROCESSED ===\n");
     displayItems(items, itemCount);
+    
     return 0;
 }
