@@ -12,15 +12,16 @@ a natural number). (7pts)
 directly in your source files). (2pts) */
 
 
-//Interation
+// Interation
 #include<stdio.h>
 int Sum(int n){
     int sum=0;
     while(n>0){
-        sum=sum+n%10;
+        sum=sum+n%10;       
         n=n/10;
     }
     return sum;
+
 }
 void Check(int n,int sum){
     if(sum!=0&&n%sum==0){
@@ -32,9 +33,39 @@ int main(){
     int n;
     printf("Enter the number n:");
     scanf("%d",&n);
-    for(int i=1;i<n;i++){
+    for(int i=1;i<=n;i++){
         int sum = Sum(i);
         Check(i,sum);
     }
     return 0;
 }
+// O(n)=n.log(n)
+
+//Recursion
+#include<stdio.h>
+int Sum(int n){
+    int sum=0;
+    while(n>0){
+        sum =sum +n%10;
+        n=n/10;
+    }
+    return sum;
+}
+int Check(int n){
+    int sum=Sum(n);
+    if (n==0){
+        return 0;
+    }
+    if(sum!=0 && n%sum==0){
+        printf("%d\n",n);
+    }
+    Check(n-1);
+}
+int main(){
+    int n;
+    printf("Enter the number n:");
+    scanf("%d",&n);
+    Check(n);
+    return 0;
+}
+//O(n)=n.log(n)
