@@ -1,7 +1,7 @@
 // buble sort
 #include<stdio.h>
 int main(){
-    int arr[10]={5,8,3,7,9,83,42,15,75,43};
+    int arr[10]={3,5,7,8,9,83,42,15,75,43};
     for(int i=0;i<10;i++){
         printf("%d ",arr[i]);
     }

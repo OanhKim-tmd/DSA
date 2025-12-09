@@ -14,3 +14,36 @@ digits at the same time using Pass-by-Reference in C/C++. (8pts)
 your answer. (2 pts)
 */
 
+#include<stdio.h>
+int checkodd(int n){
+    if(n<=0){
+        return 0;
+    }
+    int m=n%10;
+    if(m%2!=0){
+        printf("%d ",m);
+    }
+    checkodd(n/10);
+}
+
+int checkeven(int n){
+    if(n<=0){
+        return 0;
+    }
+    int m=n%10;
+    if(m%2==0){
+        printf("%d ",m);
+    }
+    checkeven(n/10);
+}
+
+int main(){
+    int n = 3457826;
+    printf("Odd digits: ");
+    checkodd(n);
+    printf("\n");
+    printf("Even Digits: ");
+    checkeven(n);
+
+    return 0;
+}
