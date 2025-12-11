@@ -2,52 +2,38 @@
 Viết hàm InsertFirst(int x) và kiểm tra bằng cách thêm 3 số rồi in danh sách.*/
 
 #include<stdio.h>
-#include<stdlib.h>
-
+#include <stdlib.h>
 typedef struct Node{
-    int data;
-    struct Node *pnext;
-} Node;
-typedef struct List{
-    int size;
-    Node *pHead;
-} List;
-void init(List *l){
-    l->size = 0;
-    l->pHead = NULL;
+    int data ;
+    struct Node* next;
+}Node;
+Node* initNode(int x){
+    Node* p = (Node*)malloc(sizeof(Node));
+    p->data=x;
+    p->next = NULL;
+    return p;
 }
-Node* initNode(int val){
-    Node *node = (Node*)malloc(sizeof *node);
-    node->data = val;
-    node->pnext = NULL;
-    return node;
+void InsertFirst(Node** head,int x){
+    Node*q = initNode(x);
+    q->next=*head;
+    *head=q;
 }
-int isEmpty(List* l){
-    return (l->size == 0);
-}
-void InsertFirst(List *l, int x){
-    Node *p = initNode(x);
-    p->pnext = l->pHead;
-    l->pHead = p;
-    l->size++;
-}
-void Print(List *l){
-    Node *p = l->pHead;
-    while(p != NULL){
-        printf("%d ", p->data);
-        p = p->pnext;
+void Print(Node* head){
+    Node* p = head;
+    while(p !=NULL){
+        printf("%d", p->data);
+        p=p->next;
     }
     printf("\n");
 }
+
 int main(){
-    List L;
-    init(&L);
+    Node* head =NULL;
+    InsertFirst(&head, 10);
+    InsertFirst(&head, 20);
+    InsertFirst(&head, 30);
 
-    InsertFirst(&L, 10);
-    InsertFirst(&L, 20);
-    InsertFirst(&L, 30);
-
-    Print(&L);
+    Print(head); 
 
     return 0;
 }

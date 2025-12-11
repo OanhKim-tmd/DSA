@@ -58,20 +58,14 @@ void FreeList(Node* head) {
 
 int main() {
     Node* head = NULL;
-    
-    // Thêm các phần tử vào danh sách
     Push(&head, 10);
     Push(&head, 20);
     Push(&head, 30);
     Push(&head, 40);
     Push(&head, 50);
-    
-    // Tìm kiếm
     printf("Tìm 30: %s\n", Search(head, 30) ? "Tồn tại" : "Không tồn tại");
     printf("Tìm 25: %s\n", Search(head, 25) ? "Tồn tại" : "Không tồn tại");
     printf("Tìm 10: %s\n", Search(head, 10) ? "Tồn tại" : "Không tồn tại");
-    
-    // Giải phóng bộ nhớ
     FreeList(head);
     
     return 0;
