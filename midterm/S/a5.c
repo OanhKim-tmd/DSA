@@ -6,48 +6,41 @@
 // The result is 1101
 // Write C program using a Stack data structure 
 // (use init(), display(), push(), pop()). Analyze the complexity*/
-#include <stdio.h>
+#include<stdio.h>
 #define MAX 100
-
-typedef struct {
+typedef struct{
     int arr[MAX];
     int top;
-} Stack;
-
-void init(Stack *s) {
-    s->top = -1;
+}Stack;
+void init(Stack *s){
+    s->top=-1;
 }
-void push(Stack *s, int val) {
-    s->arr[++(s->top)] = val;
+void push(Stack *s, int val){
+    s->arr[++(s->top)]=val;
 }
-int pop(Stack *s) {
+int pop(Stack *s){
     return s->arr[(s->top)--];
 }
-void display(Stack *s) {
-    for (int i = s->top; i >= 0; i--) {
-        printf("%d", s->arr[i]);
+void display(Stack *s){
+    for(int i =s->top;i>=0;i--){
+        printf("%d",s->arr[i]);
     }
     printf("\n");
 }
-
-void decimalToBinary(int n) {
+int calculate(int n){
     Stack s;
     init(&s);
-    if (n == 0) {
-        printf("0\n");
-        return;
+    if(n==0){
+        return 0;
     }
-    while (n > 0) {
-        push(&s, n % 2);
-        n = n / 2;
+    while(n>0){
+        push(&s,n%2);
+        n=n/2;
     }
     display(&s);
 }
+int main(){
+    calculate(13);
 
-int main() {
-    int n;
-    printf("Enter decimal number: ");
-    scanf("%d", &n);
-    decimalToBinary(n);
     return 0;
 }

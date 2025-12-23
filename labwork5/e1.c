@@ -8,4 +8,8 @@ element or the maximum is sorted.
 Write a program to complete the above algorithm.
 Calculate the complexity of your program (Best scenario, Worst scenario, Average).*/
 
-
+#include<stdio.h>
+int main(){
+    
+    return 0;
+}

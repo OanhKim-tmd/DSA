@@ -28,7 +28,7 @@ typedef struct{
 }Queue;
 
 void init(Queue *q){
-    q->front=0;
+    q->front=2;
     q->rear=-1;
 }
 int isEmpty(Queue *q){
